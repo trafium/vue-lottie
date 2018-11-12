@@ -39,7 +39,11 @@
           name: name
         }
       );
-      this.$emit('animCreated', this.anim)
+
+      this.$emit('animCreated', this.anim);
+
+      this.anim.addEventListener('complete', () => this.$emit('complete', this.anim));
+      this.anim.addEventListener('loopComplete', () => this.$emit('loopComplete', this.anim));
     }
   }
 </script>
