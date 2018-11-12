@@ -44,6 +44,7 @@
 
       this.anim.addEventListener('complete', () => this.$emit('complete', this.anim));
       this.anim.addEventListener('loopComplete', () => this.$emit('loopComplete', this.anim));
+      this.anim.addEventListener('enterFrame', () => this.$emit('enterFrame', this.anim));
     }
   }
 </script>
