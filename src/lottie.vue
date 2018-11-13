@@ -42,9 +42,14 @@
 
       this.$emit('animCreated', this.anim);
 
-      this.anim.addEventListener('complete', () => this.$emit('complete', this.anim));
-      this.anim.addEventListener('loopComplete', () => this.$emit('loopComplete', this.anim));
-      this.anim.addEventListener('enterFrame', () => this.$emit('enterFrame', this.anim));
+      if (this.$listeners.complete)
+        this.anim.addEventListener('complete', () => this.$emit('complete', this.anim));
+
+      if (this.$listeners.loopComplete)
+        this.anim.addEventListener('loopComplete', () => this.$emit('loopComplete', this.anim));
+
+      if (this.$listeners.enterFrame)
+        this.anim.addEventListener('enterFrame', () => this.$emit('enterFrame', this.anim));
     }
   }
 </script>
